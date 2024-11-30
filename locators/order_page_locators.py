@@ -6,14 +6,15 @@ from selenium.webdriver.support import expected_conditions
 
 
 class OrderPageLocators:
-
+    DZEN_LOC = By.XPATH, ".//*[@id='dzen-header']"
+    SAM_LOC = By.XPATH, ".//div[@class='Home_Header__iJKdX']"
     ORDER_BUTTON = By.XPATH, ".//button[text()='Заказать']"
     ORDER_BUTTON_MID = By.XPATH, ".//button[@class='Button_Button__ra12g Button_Middle__1CSJM']"
-    METRO_STATION = By.XPATH, ".//div[@class='Order_Form__17u6u']//div[4]//input"
-    NAME_FIELD = By.XPATH, ".//div[@class='Order_Form__17u6u']//div[1]/input"
-    SERNAME_FIELD = By.XPATH, ".//div[@class='Order_Form__17u6u']//div[2]/input"
-    ADDRESS = By.XPATH, ".//div[@class='Order_Form__17u6u']//div[3]/input"
-    TELEPHON = By.XPATH, ".//div[@class='Order_Form__17u6u']//div[5]/input"
+    METRO_STATION = By.XPATH, ".//input[@placeholder='* Станция метро']"
+    NAME_FIELD = By.XPATH, ".//input[@placeholder='* Имя']"
+    SERNAME_FIELD = By.XPATH, ".//input[@placeholder='* Фамилия']"
+    ADDRESS = By.XPATH, ".//input[@placeholder='* Адрес: куда привезти заказ']"
+    TELEPHON = By.XPATH, ".//input[@placeholder='* Телефон: на него позвонит курьер']"
     NEXT_BUTTON = By.XPATH, ".//div[@class='Order_NextButton__1_rCA']/button"
     SOKOL_METRO = By.XPATH, ".//*[text()='Сокольники']"
     KOLOM_METRO = By.XPATH, ".//*[text()='Комсомольская']"

@@ -13,8 +13,3 @@ def driver():
     driver.quit()
 
 
-#@pytest.fixture
-#def main_page(driver):
-#    page = MainPage(driver)
-#    page.get_url(url)
-#    return page

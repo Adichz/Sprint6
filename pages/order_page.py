@@ -1,8 +1,7 @@
 import allure
 from pages.base_page import BasePage
 from locators.order_page_locators import OrderPageLocators
-from selenium.webdriver.support.wait import WebDriverWait
-from selenium.webdriver.support import expected_conditions
+
 
 
 class OrderPage(BasePage):
@@ -25,9 +24,13 @@ class OrderPage(BasePage):
     def check_order(self):
         return self.get_text_from_element(OrderPageLocators.FINAL_FIELD)
 
-    @allure.step('Клик на Лого')
-    def click_to_logo(self, locator_logo):
-        self.click_to_element(locator_logo)
+    @allure.step('Клик на Лого Самокат')
+    def click_to_logo_samokat(self):
+        self.click_to_element(OrderPageLocators.LOGO_SAMOKAT)
+
+    @allure.step('Клик на Лого Яндекс')
+    def click_to_logo_yandex(self):
+        self.click_to_element(OrderPageLocators.LOGO_YANDEX)
 
     @allure.step('Заполнение поля "Про Аренду"')
     def set_order2(self, date, color):
@@ -37,6 +40,21 @@ class OrderPage(BasePage):
         self.click_to_element(OrderPageLocators.SUTOK4)
         self.click_to_element(OrderPageLocators.ZAKAZAT_BUTTON)
         self.click_to_element(OrderPageLocators.DA_BUTTON)
+
+    @allure.step('Клик на "Заказать"')
+    def click_to_zakaz(self):
+        self.click_to_element(OrderPageLocators.ORDER_BUTTON)
+
+    @allure.step('Переключяемся на другое окно"')
+    def switch_window(self):
+        windows = self.driver.window_handles
+        self.driver.switch_to.window(windows[1])
+
+    @allure.step('Проверяем элемент на странице "Дзена"')
+    def check_dzen(self):
+        self.find_element_with_wait(OrderPageLocators.DZEN_LOC)
+
+
 
 
 

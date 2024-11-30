@@ -26,22 +26,21 @@ class TestOrderPage:
         order_page.set_order2(date, color)
         assert "Заказ оформлен" in order_page.check_order()
 
-    @allure.title('Тестирование кликов на Логотипы')
-    @allure.description('Проверяем переходы на страницы по клику на Логотипы')
-    @pytest.mark.parametrize(
-        'locator, locator_logo, logo_url',
-        [
-            (OrderPageLocators.ORDER_BUTTON, OrderPageLocators.LOGO_SAMOKAT, Data.URL_SAMOKAT),
-            (OrderPageLocators.ORDER_BUTTON_MID, OrderPageLocators.LOGO_YANDEX, Data.URL_YANDEX)
-        ]
-    )
-    def test_logo(self, driver, locator, locator_logo, logo_url):
+    @allure.title('Тестирование клика на Лого Самоката')
+    @allure.description('Проверяем переход на страницу по клику на Логотип')
+    def test_logo_samokat(self, driver):
         order_page = OrderPage(driver)
         order_page.get_url(Data.URL)
-        order_page.click_to_order(locator)
-        order_page.click_to_logo(locator_logo)
-        assert order_page.check_url() == logo_url
+        order_page.click_to_zakaz()
+        order_page.click_to_logo_samokat()
+        assert order_page.check_url() == Data.URL_SAMOKAT
 
 
-
-
+    @allure.title('Тестирование клика на Лого Яндекса')
+    @allure.description('Проверяем переход на страницу по клику на Логотип и находим элемент на ней')
+    def test_logo_yandex(self, driver):
+        order_page = OrderPage(driver)
+        order_page.get_url(Data.URL)
+        order_page.click_to_logo_yandex()
+        order_page.switch_window()
+        order_page.check_dzen()
