@@ -47,6 +47,10 @@ class BasePage:
     def check_url(self):
         return self.driver.current_url
 
+    def switch_window(self):
+        windows = self.driver.window_handles
+        self.driver.switch_to.window(windows[1])
+
 
 
 

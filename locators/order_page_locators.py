@@ -18,7 +18,7 @@ class OrderPageLocators:
     NEXT_BUTTON = By.XPATH, ".//div[@class='Order_NextButton__1_rCA']/button"
     SOKOL_METRO = By.XPATH, ".//*[text()='Сокольники']"
     KOLOM_METRO = By.XPATH, ".//*[text()='Комсомольская']"
-    DATE_FIELD = By.XPATH, "/html/body/div/div/div[2]/div[2]/div[1]/div[1]/div/input"
+    DATE_FIELD = By.XPATH, ".//input[@placeholder='* Когда привезти самокат']"
     BLACK_BUTTON = By.XPATH, ".//*[@id='black']"
     GREY_BUTTON = By.XPATH, ".//*[@id='grey']"
     TIME_FIELD = By.XPATH, ".//div[@class='Dropdown-control']"

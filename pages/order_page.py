@@ -45,11 +45,6 @@ class OrderPage(BasePage):
     def click_to_zakaz(self):
         self.click_to_element(OrderPageLocators.ORDER_BUTTON)
 
-    @allure.step('Переключяемся на другое окно"')
-    def switch_window(self):
-        windows = self.driver.window_handles
-        self.driver.switch_to.window(windows[1])
-
     @allure.step('Проверяем элемент на странице "Дзена"')
     def check_dzen(self):
         self.find_element_with_wait(OrderPageLocators.DZEN_LOC)
